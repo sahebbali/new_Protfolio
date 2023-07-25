@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { MdAlternateEmail } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
@@ -7,8 +7,44 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineArrowUp } from "react-icons/ai";
 import { BsFacebook, BsSlack } from "react-icons/bs";
 import { FiMail, FiPhoneCall } from "react-icons/fi";
 import { Slide, Zoom, Fade } from "react-awesome-reveal";
-
+import emailjs from '@emailjs/browser';
+import toast, { Toaster } from 'react-hot-toast';
+import {ContactUs} from '../email/EmailJS'
 const Footer = () => {
+
+  const [formData, setFormData] = useState({
+    user_name: '',
+    user_email: '',
+    message: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+  const EmptyState =()=>{
+    setFormData({
+      user_name: '',
+      user_email: '',
+      message: '',
+    })
+  }
+  const sendEmail = async(e) => {
+    e.preventDefault();
+     try {
+      const response = await emailjs.send('service_nh8pn1x', 'template_4kb2zjl', formData, 'tKMyMVOrbW2DrQ589')
+      console.log('Email sent successfully!', response.text);
+      toast.success("Email sent successfully!")
+      EmptyState();
+    } catch (error) {
+      console.log('Failed to send email:', error.text);
+    }
+      
+  };
+
   const scrollUp = () => {
     window.scroll({
       top: 0,
@@ -17,6 +53,7 @@ const Footer = () => {
   };
   return (
     <Container id="contact">
+      <Toaster />
       <Profile>
         <Slide direction="left" delay={1}>
           <h1>Contact us</h1>
@@ -89,29 +126,39 @@ const Footer = () => {
       </Profile>
       <Form>
         <Slide direction="right">
-          <form>
-            <div className="name">
-              <span>
-                <CgProfile />
-              </span>
-              <input type="text" placeholder="Fullname..." />
-            </div>
-            <div className="email">
-              <span>
-                <MdAlternateEmail />
-              </span>
-              <input type="email" placeholder="Email..." />
-            </div>
-            <div className="message">
-              <span className="messageIcon">
-                <FiMail />
-              </span>
-              <textarea cols="30" rows="10" placeholder="Message..."></textarea>
-            </div>
-            <button>Submit</button>
-          </form>
+                <form onSubmit={sendEmail}>
+              {/* Your form input elements */}
+              <div className="name">
+                <span>
+                  <CgProfile />
+                </span>
+                <input 
+                  type="text"
+                  required
+                  name="user_name"
+                  placeholder="Fullname..."
+                  value={formData.user_name}
+                  onChange={handleChange} />
+              </div>
+              <div className="email">
+                <span>
+                  <MdAlternateEmail />
+                </span>
+                <input type="email" name="user_email" required placeholder="Email..."  value={formData.user_email}
+          onChange={handleChange} />
+              </div>
+              <div className="message">
+                <span className="messageIcon">
+                  <FiMail />
+                </span>
+                <textarea name="message" cols="30" rows="10" required placeholder="Message..."  value={formData.message}
+          onChange={handleChange}></textarea>
+              </div>
+              <button type="submit">Submit</button>
+            </form>         
         </Slide>
       </Form>
+      
     </Container>
   );
 };

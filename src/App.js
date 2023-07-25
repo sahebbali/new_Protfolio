@@ -22,7 +22,7 @@ function App() {
         <Projects />
       </LightColor> */}
         <Portfolio />
-      <Clients />
+      {/* <Clients /> */}
       <LightColor>
         <Footer />
       </LightColor>

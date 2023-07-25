@@ -3,8 +3,11 @@ import styled from "styled-components";
 import { AiOutlineInstagram } from "react-icons/ai";
 import { GiEarthAmerica } from "react-icons/gi";
 import { FaFacebookSquare } from "react-icons/fa";
+import { BsGithub } from "react-icons/bs";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Slide } from "react-awesome-reveal";
+import Typewriter from 'typewriter-effect';
+
 
 const ProfComponent = () => {
   return (
@@ -15,11 +18,17 @@ const ProfComponent = () => {
             Hello <span className="green">I'am</span>
           </h4>
           <h1 className="green">Saheb Bali</h1>
-          <h3>Full Stack Developer</h3>
+          <h3>
+          <Typewriter
+          options={{
+            strings: ['Full Stack Developer', 'MERN Stack Developer', 'NextJS Developer'],
+            autoStart: true,
+            loop: true,
+          }}
+        />
+          </h3>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores,
-            iusto. Adipisci in qui officia provident tenetur sequi, deserunt
-            corporis quos?
+          I, as a skilled MERN Stack Developer and Next.js Developer, aspire to design and develop an exceptional showcase platform, my portfolio website. Through this platform, I will demonstrate my expertise in these technologies, showcase my talents, and highlight my accomplishments, thereby elevating my online presence and leaving a lasting impression on visitors.
           </p>
         
           <button> <span><a className="letTalk" href="#contact">Let's talk</a></span> </button>
@@ -32,13 +41,18 @@ const ProfComponent = () => {
                 </a>
               </span>
               <span>
-                <a href="/">
+                <a href="https://www.facebook.com/profile.php?id=100006871099087">
                   <FaFacebookSquare />
                 </a>
               </span>
               <span>
-                <a href="/">
+                <a href="https://www.linkedin.com/in/saheb-bali-228646243/">
                   <FaLinkedinIn />
+                </a>
+              </span>
+              <span>
+                <a href="https://github.com/sahebbali">
+                  <BsGithub />
                 </a>
               </span>
             </div>
@@ -94,6 +108,8 @@ const Texts = styled.div`
   }
   p {
     font-weight: 300;
+    text-align: justify;
+    margin-right:30px;
   }
 
   button {
@@ -155,8 +171,8 @@ const Social = styled.div`
 `;
 const Profile = styled.div`
   img {
-    width: 25rem;
-    height:30rem;
+    width: 20rem;
+    height:25rem;
     padding: 10px;
     border-radius:10%;
     filter: drop-shadow(0px 10px 10px #01be9345);

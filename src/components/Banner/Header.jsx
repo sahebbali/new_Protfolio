@@ -2,20 +2,20 @@ import React, { useState } from 'react'
 import styled from 'styled-components';
 import { GiCandleFlame } from "react-icons/gi";
 
+import saheb from '../../assets/logo1.png'
 const Header = () => {
     const [bar, setBar] = useState(false);
   return (
     <Container bar={bar}>
         <Logo>
-            <span className='green'><GiCandleFlame/></span>
-            <h1>Portfolio</h1>
+            <img src={saheb}></img>        
         </Logo>
         <Nav bar={bar}>
             <span><a href="#home">Home</a></span>
             <span><a href="#service">Services</a></span>
             <span><a href="#skills">Skills</a></span>
             <span><a href="#projects">Projects</a></span>
-            <span><a href="#client">Testimonials</a></span>
+            {/* <span><a href="#client">Testimonials</a></span> */}
             <span><a href="#contact">Contact</a></span>
         </Nav>
         <div
@@ -86,6 +86,12 @@ const Logo = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    img{
+        height:100px;
+        weidth:100px;
+        border: 1px solid black;
+        border-radius:10px;
+    }
     span{
         font-size: 1.8rem;
     }

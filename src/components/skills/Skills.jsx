@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsFillPatchCheckFill } from 'react-icons/bs';
+
 import { Slide } from "react-awesome-reveal";
 
 import './skills.css';
@@ -18,52 +19,56 @@ const Experience = () => {
 
   
       <div className="container experience__container">
+        
         <div className="experience__frontend">
           <h3>Front-end Development</h3>
-          <div className="experience__content">
-          <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>HTML5</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>CSS3</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>JavaScript</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Typescript</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>ReactJS</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>NextJS</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Redux</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>MaterialUI</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>SCSS</h4>
-            </article>
-            <article className="experience__details">
-              <BsFillPatchCheckFill className="experience__details-icon" />
-              <h4>Tailwind CSS</h4>
-            </article>
-          </div>
+          <Slide direction="left">
+            <div className="experience__content">
+              <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>HTML5</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>CSS3</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>JavaScript</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>Typescript</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>ReactJS</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>NextJS</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>Redux</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>MaterialUI</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>SCSS</h4>
+                </article>
+                <article className="experience__details">
+                  <BsFillPatchCheckFill className="experience__details-icon" />
+                  <h4>Tailwind CSS</h4>
+                </article>
+              </div>
+          </Slide>
         </div>
-        <div className="experience__backend">
+        <Slide direction="right">
+         <div className="experience__backend">
           <h3>Back-end Development</h3>
           <div className="experience__content">
           <article className="experience__details">
@@ -97,6 +102,7 @@ const Experience = () => {
             </article>
           </div>
         </div>
+        </Slide>
       </div>
     </section>
   )

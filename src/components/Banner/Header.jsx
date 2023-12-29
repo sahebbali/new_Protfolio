@@ -6,6 +6,7 @@ import saheb from "../../assets/logo1.png";
 const Header = () => {
   const [bar, setBar] = useState(false);
   console.log("object");
+  console.log("object");
   return (
     <Container bar={bar}>
       <Logo>
